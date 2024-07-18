@@ -1,0 +1,20 @@
+<section id="search">
+  <form>
+    <label>Filter by breed name</label>
+    <input type="search" placeholder="Breed name" (input)="onSearchStringChanged($event)" />
+  </form>
+</section>
+<section id="results">
+  @if(loadingResults) {
+  Loading...
+  } @else if(!loadingError) {
+    <span id="results-count">{{dogBreedFliteredList.length}} results</span>
+    @for (dogBreed of dogBreedFliteredList; track dogBreed.id) {
+    <app-dog-breed [dogBreed]="dogBreed"></app-dog-breed>
+    } @empty {
+    <div>Such breed wasn't created by God</div>
+    }
+  } @else {
+    <span class="error">Error getting data!</span>
+  }
+</section>

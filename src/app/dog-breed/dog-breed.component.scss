@@ -1,0 +1,57 @@
+.dogBreed {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.dogBreedName {
+    display: inline-block;
+    width: 80%;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.showMoreButton, .closeButton {
+    width: 20%;
+    border: 0;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    color: #0BB232;
+}
+
+.closeButton {
+    color: #ED006D;
+}
+
+.showMoreButton:hover, .closeButton:hover {
+    cursor: pointer;
+}
+
+.dogBreedDetails {
+    margin-top: 30px;
+}
+
+.dogBreedDetails>img {
+    width: 35%;
+    margin-right: 25px;
+    float: left;
+    vertical-align: top;
+}
+
+.dogBreedAttributes>div {
+    display: inline-block;
+}
+
+.dogBreedAttributes>.lifespan {
+    width: 30%;
+}
+
+.dogBreedAttributes .title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666A71;
+}

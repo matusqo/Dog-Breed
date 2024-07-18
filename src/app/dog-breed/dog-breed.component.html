@@ -1,0 +1,29 @@
+<div class="dogBreed">
+    <span class="dogBreedName">{{dogBreed.name}}</span>
+    @if(!moreInfoShown) {
+    <button class="showMoreButton" (click)="onShowMorePressed()">Show more</button>
+    }
+    @else {
+    <button class="closeButton" (click)="onShowMorePressed()">Close</button>
+    }
+    @if(moreInfoShown) {
+    <div class="dogBreedDetails">
+        <img src="{{dogBreedDetails?.url}}" alt="Dog breed photo" />
+        <p class="description">{{dogBreed.description}}</p>
+        <div class="dogBreedAttributes">
+            @if(dogBreed.life_span) {
+            <div class="lifespan">
+                <div class="title">Lifespan</div>
+                <span class="value">{{dogBreed.life_span}}</span>
+            </div>
+            }
+            @if(dogBreed.origin) {
+            <div class="origin">
+                <div class="title">Origin</div>
+                <span class="value">{{dogBreed.origin}}</span>
+            </div>
+            }
+        </div>
+    </div>
+    }
+</div>
