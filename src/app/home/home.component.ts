@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DogBreedComponent } from '../dog-breed/dog-breed.component';
 import { DogBreed } from '../dog-breed';
 import { DogBreedsService } from '../services/dog-breeds.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +30,7 @@ export class HomeComponent {
     //   reference_image_id: "BJa4kxc4X"
     // });
     // this.dogBreedFliteredList = this.dogBreedList;
-    this.dogBreedsService.getAllDogBreeds()
+    this.dogBreedsService.getAllDogBreeds(environment.dogBreedsLimit)
     .then((dogBreeds) => {
       this.dogBreedList = dogBreeds;
       this.dogBreedFliteredList = this.dogBreedList;
