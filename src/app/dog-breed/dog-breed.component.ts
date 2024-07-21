@@ -21,8 +21,6 @@ export class DogBreedComponent {
   dogBreedsService: DogBreedsService = inject(DogBreedsService);
 
   async onShowMorePressed() {
-    console.log('show more clicked for ' + this.dogBreed.name);
-
     this.moreInfoShown = !this.moreInfoShown;
     if(!this.moreInfoShown) {
       return;
@@ -32,10 +30,6 @@ export class DogBreedComponent {
       return;
     }
     
-    console.log(this.dogBreed);
-    
-    this.dogBreedDetails = await this.dogBreedsService.getDogBreedImageAndDetails(this.dogBreed.reference_image_id);
-    
-    console.log(this.dogBreedDetails);
+    this.dogBreedsService.getDogBreedImageAndDetailsStream(this.dogBreed.reference_image_id).subscribe(dogBreedDetails => this.dogBreedDetails = dogBreedDetails);
   }
 }
