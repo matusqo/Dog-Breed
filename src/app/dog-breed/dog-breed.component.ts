@@ -30,6 +30,6 @@ export class DogBreedComponent {
       return;
     }
     
-    this.dogBreedDetails = await this.dogBreedsService.getDogBreedImageAndDetails(this.dogBreed.reference_image_id);
+    this.dogBreedsService.getDogBreedImageAndDetailsStream(this.dogBreed.reference_image_id).subscribe(dogBreedDetails => this.dogBreedDetails = dogBreedDetails);
   }
 }

@@ -1,20 +1,22 @@
 <section id="search">
   <form>
     <label>Filter by breed name</label>
-    <input type="search" placeholder="Breed name" (input)="onSearchStringChanged($event)" />
+    <input [formControl]="searchBox" type="search" placeholder="Breed name" />
   </form>
 </section>
 <section id="results">
-  @if(loadingResults) {
+  @if(loading) {
   Loading...
   } @else if(!loadingError) {
-    <span id="results-count">{{dogBreedFliteredList.length}} results</span>
-    @for (dogBreed of dogBreedFliteredList; track dogBreed.id) {
+    <span id="results-count">{{(dogBreedsStream$ | async)?.length ?? 0}} results</span>
+    @for (dogBreed of (dogBreedsStream$ | async); track dogBreed.id) {
     <app-dog-breed [dogBreed]="dogBreed"></app-dog-breed>
     } @empty {
     <div>Such breed wasn't created by God</div>
     }
   } @else {
     <span class="error">Error getting data!</span>
+    <br />
+    <span class="error">{{loadingError}}</span>
   }
 </section>
